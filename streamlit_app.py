@@ -27,6 +27,9 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 
 # write your own comment -what does the next line do? 
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+
+fruits_selected = streamlit.multiselect("Pick some fruits:", list(fruityvice_response.index)
+fruits_to_show = my_fruit_list.loc[fruits_selected]
 # write your own comment - what does this do?
-streamlit.dataframe(fruityvice_normalized)
+streamlit.dataframe(fruits_to_show)
 
